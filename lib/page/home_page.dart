@@ -34,11 +34,13 @@ class _HomeState extends State
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.search_rounded), label: 'search'),
           BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'explore'),
           BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'favorite'),
-          BottomNavigationBarItem(icon: Icon(Icons.message), label: 'message'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.search_rounded), label: 'search'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person), 
+            label: 'profile'
+            ),
         ]
       ),
       appBar: AppBar(

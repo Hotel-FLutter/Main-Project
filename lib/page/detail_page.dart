@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Detail extends StatelessWidget {
   final Map<String, dynamic> hotel;
@@ -165,7 +164,7 @@ class Detail extends StatelessWidget {
                        Container(
                         alignment: Alignment.topLeft,
                         padding: const EdgeInsets.symmetric(horizontal: 25),
-                        child: const Text('Jl. Pangeran Hidayatullah, Pelabuhan,')
+                        child: Text(hotel['nama_jalan'])
                       ),
                   ],
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_mobile/page/detail_page.dart';
 import 'package:hotel_mobile/page/home_page.dart';
+import 'package:hotel_mobile/page/search_page.dart';
 
 void main(){
   runApp(const Hotel());
@@ -26,6 +27,7 @@ class Hotel extends StatelessWidget {
         '/reservasi' : (context) => const Home(),
         '/search' : (context) => const Home(),
         '/detail' : (context) => const Detail(hotel: {},),
+        '/searchs': (context) => Search(),
       },
     );
   }
