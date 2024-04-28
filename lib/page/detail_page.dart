@@ -45,10 +45,10 @@ class Detail extends StatelessWidget {
                           ),),
                       ),
                       Container(
-                        margin: const EdgeInsets.fromLTRB(25, 5, 0, 5),
+                        margin: const EdgeInsets.fromLTRB(25, 5, 15, 5),
                         alignment: Alignment.topLeft,
                         child: 
-                          Text(hotel['deskripsi']),
+                          Text(hotel['deskripsi'], textAlign: TextAlign.justify,),
                       ),
                       Container(
                         margin: const EdgeInsets.fromLTRB(25, 5, 0, 5),
