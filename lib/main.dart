@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_mobile/page/detail_page.dart';
 import 'package:hotel_mobile/page/home_page.dart';
 
 void main(){
@@ -11,13 +12,20 @@ class Hotel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.black,
+          brightness: Brightness.light
+        ),
+        primaryColor: Colors.white,
+      ),
       routes: {
         '/' : (context) => const Home(),
         '/reservasi' : (context) => const Home(),
         '/search' : (context) => const Home(),
-        '/detail' : (context) => const Home(),
-        
+        '/detail' : (context) => const Detail(hotel: {},),
       },
     );
   }

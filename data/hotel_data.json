@@ -1,0 +1,133 @@
+[
+  {
+    "nama_hotel": "Hotel Grand Kartika Samarinda",
+    "fasilitas": ["Kolam Renang", "Restoran", "Fitness Center", "Spa"],
+    "nama_jalan": "Jl. Pangeran Diponegoro No.17",
+    "rating": 4.5,
+    "deskripsi": "Hotel mewah dengan pemandangan Sungai Mahakam, menawarkan kolam renang outdoor, restoran, dan layanan spa.",
+    "kecamatan": "Samarinda Utara",
+    "reviews": [
+      {"nama_pengulas": "Rudi", "ulasan": "Pelayanan yang ramah, kamar bersih, dan sarapan enak."},
+      {"nama_pengulas": "Siti", "ulasan": "Lokasi strategis, dekat dengan pusat perbelanjaan."},
+      {"nama_pengulas": "Budi", "ulasan": "Kolam renang luas dan bersih, cocok untuk bersantai."}
+    ]
+  },
+  {
+    "nama_hotel": "Hotel Mesra International",
+    "fasilitas": ["Kolam Renang", "Restoran", "Bar", "Gym"],
+    "nama_jalan": "Jl. Pangeran Hidayatullah No. 21",
+    "rating": 4.2,
+    "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, dan bar. Terletak di pusat kota Samarinda.",
+    "kecamatan": "Samarinda Ulu",
+    "reviews": [
+      {"nama_pengulas": "Ani", "ulasan": "Kamar yang nyaman dan pelayanan yang ramah."},
+      {"nama_pengulas": "Ridwan", "ulasan": "Lokasi strategis, dekat dengan tempat makan dan pusat perbelanjaan."},
+      {"nama_pengulas": "Dewi", "ulasan": "Sarapan yang lezat, pilihan menu beragam."}
+    ]
+  },
+  {
+    "nama_hotel": "Swiss-Belhotel Borneo Samarinda",
+    "fasilitas": ["Kolam Renang", "Restoran", "Fitness Center", "Spa"],
+    "nama_jalan": "Jl. Mulawarman No. 6",
+    "rating": 4.3,
+    "deskripsi": "Hotel bintang 4 dengan pemandangan Sungai Mahakam, menawarkan kolam renang outdoor, restoran, dan layanan spa.",
+    "kecamatan": "Samarinda Ilir",
+    "reviews": [
+      {"nama_pengulas": "Lia", "ulasan": "Kamar yang bersih dan nyaman, pemandangan sungai yang indah."},
+      {"nama_pengulas": "Ahmad", "ulasan": "Pelayanan yang ramah dan fasilitas yang lengkap."},
+      {"nama_pengulas": "Fitri", "ulasan": "Makanan di restoran sangat lezat, beragam pilihan menu."}
+    ]
+  },
+  {
+    "nama_hotel": "Swiss-Belinn Manyar Samarinda",
+    "fasilitas": ["Kolam Renang", "Restoran", "Bar", "Fitness Center"],
+    "nama_jalan": "Jl. Awang Long No. 1",
+    "rating": 4.1,
+    "deskripsi": "Hotel bintang 3 dengan kolam renang, restoran, bar, dan pusat kebugaran. Terletak di pusat kota Samarinda.",
+    "kecamatan": "Samarinda Seberang",
+    "reviews": [
+      {"nama_pengulas": "Nia", "ulasan": "Kamar yang nyaman dan bersih, staf hotel ramah."},
+      {"nama_pengulas": "Hadi", "ulasan": "Lokasi strategis, dekat dengan tempat makan dan pusat perbelanjaan."},
+      {"nama_pengulas": "Dina", "ulasan": "Kolam renang bersih dan menyegarkan."}
+    ]
+  },
+  {
+    "nama_hotel": "Hotel Bumi Senyiur Samarinda",
+    "fasilitas": ["Kolam Renang", "Restoran", "Fitness Center", "Spa"],
+    "nama_jalan": "Jl. Untung Suropati No. 8",
+    "rating": 4.0,
+    "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, dan layanan spa. Terletak di pusat kota Samarinda.",
+    "kecamatan": "Samarinda Kota",
+    "reviews": [
+      {"nama_pengulas": "Rini", "ulasan": "Kamar yang bersih dan nyaman, pemandangan sungai yang indah."},
+      {"nama_pengulas": "Firman", "ulasan": "Pelayanan yang ramah dan fasilitas yang lengkap."},
+      {"nama_pengulas": "Siska", "ulasan": "Makanan di restoran sangat lezat, beragam pilihan menu."}
+    ]
+  },
+  {
+    "nama_hotel": "Hotel Bumi Sebalo",
+    "fasilitas": ["Kolam Renang", "Restoran", "Bar", "Fitness Center"],
+    "nama_jalan": "Jl. Gatot Subroto No. 12",
+    "rating": 4.2,
+    "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, bar, dan pusat kebugaran. Terletak di pusat kota Samarinda.",
+    "kecamatan": "Samarinda Ulu",
+    "reviews": [
+      {"nama_pengulas": "Toni", "ulasan": "Kamar yang nyaman dan bersih, staf hotel ramah."},
+      {"nama_pengulas": "Nina", "ulasan": "Lokasi strategis, dekat dengan tempat makan dan pusat perbelanjaan."},
+      {"nama_pengulas": "Eko", "ulasan": "Kolam renang bersih dan menyegarkan."}
+    ]
+  },
+  {
+    "nama_hotel": "Hotel Grand Victoria",
+    "fasilitas": ["Kolam Renang", "Restoran", "Bar", "Spa"],
+    "nama_jalan": "Jl. A. Yani No. 1",
+    "rating": 4.4,
+    "deskripsi": "Hotel mewah dengan fasilitas kolam renang, restoran, bar, dan layanan spa. Terletak di pusat kota Samarinda.",
+    "kecamatan": "Samarinda Ilir",
+    "reviews": [
+      {"nama_pengulas": "Dewa", "ulasan": "Pemandangan kota yang indah dari kamar hotel."},
+      {"nama_pengulas": "Sari", "ulasan": "Pelayanan yang ramah dan fasilitas yang lengkap."},
+      {"nama_pengulas": "Adi", "ulasan": "Makanan di restoran sangat lezat, beragam pilihan menu."}
+    ]
+  },
+  {
+    "nama_hotel": "Hotel Borneo Bandara Samarinda",
+    "fasilitas": ["Restoran", "Bar", "Meeting Room", "Kolam Renang"],
+    "nama_jalan": "Jl. Sudirman No. 28",
+    "rating": 4.0,
+    "deskripsi": "Hotel yang nyaman dengan fasilitas restoran, bar, meeting room, dan kolam renang. Terletak dekat dengan bandara Samarinda.",
+    "kecamatan": "Samarinda Ulu",
+    "reviews": [
+      {"nama_pengulas": "Lani", "ulasan": "Kamar yang bersih dan nyaman, pelayanan cepat."},
+      {"nama_pengulas": "Robby", "ulasan": "Fasilitas meeting room yang lengkap dan nyaman untuk rapat bisnis."},
+      {"nama_pengulas": "Dodi", "ulasan": "Makanan di restoran enak, harga terjangkau."}
+    ]
+  },
+  {
+    "nama_hotel": "Hotel Cendana Mulia",
+    "fasilitas": ["Kolam Renang", "Restoran", "Bar", "Fitness Center"],
+    "nama_jalan": "Jl. Cendana No. 10",
+    "rating": 4.1,
+    "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, bar, dan pusat kebugaran. Terletak di pusat kota Samarinda.",
+    "kecamatan": "Samarinda Ilir",
+    "reviews": [
+      {"nama_pengulas": "Lina", "ulasan": "Kamar yang nyaman dan bersih, staf hotel ramah."},
+      {"nama_pengulas": "Hendro", "ulasan": "Lokasi strategis, dekat dengan tempat makan dan pusat perbelanjaan."},
+      {"nama_pengulas": "Nur", "ulasan": "Kolam renang bersih dan menyegarkan."}
+    ]
+  },
+  {
+    "nama_hotel": "Hotel City Garden Samarinda",
+    "fasilitas": ["Kolam Renang", "Restoran", "Bar", "Meeting Room"],
+    "nama_jalan": "Jl. P. Diponegoro No. 2",
+    "rating": 4.0,
+    "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, bar, dan meeting room. Terletak di pusat kota Samarinda.",
+    "kecamatan": "Samarinda Ulu",
+    "reviews": [
+      {"nama_pengulas": "Rina", "ulasan": "Kamar yang bersih dan nyaman, pemandangan sungai yang indah."},
+      {"nama_pengulas": "Farhan", "ulasan": "Pelayanan yang ramah dan fasilitas yang lengkap."},
+      {"nama_pengulas": "Lia", "ulasan": "Makanan di restoran sangat lezat, beragam pilihan menu."}
+    ]
+  }
+]
+  
