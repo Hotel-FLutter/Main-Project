@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hotel_mobile/page/detail_page.dart';
-import 'package:hotel_mobile/page/home_page.dart';
+import 'package:hotel_mobile/page/home_page2.dart';
 import 'package:hotel_mobile/page/reserve_page.dart';
 
 void main(){
