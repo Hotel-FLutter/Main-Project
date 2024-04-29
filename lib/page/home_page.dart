@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hotel_mobile/page/detail_page.dart';
+import 'package:hotel_mobile/page/search_page.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -16,6 +17,37 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        onTap: (value) {
+        if (value == 0) Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => Home(),
+          ),
+        );
+        if (value == 1) Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => Home(),
+          ),
+        );
+        if (value == 2) Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => Search(),
+          ),
+        );
+        if (value == 3) Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => Home(),
+          ),
+        );
+        },
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'explore'),
+          BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'favorite'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile'),
+        ]
+      ),
       appBar: AppBar(
         title: Text('Hotel Booking App'),
       ),
@@ -90,30 +122,30 @@ class _RecommendedState extends State<Recommended> {
   @override
   Widget build(BuildContext context) {
     return Container(
-              height: 200,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: hotels.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    width: 150,
-                    margin: EdgeInsets.all(8),
-                    child: ListTile(
-                      title: Text(hotels[index]["nama_hotel"]),
-                      subtitle: Text('Rating: ${hotels[index]["rating"]}'),
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Detail(hotel: hotels[index]),
-                          ),
-                        );
-                      },
-                    ),
-                  );
-                },
-              ),
-            );
+      height: 200,
+      child: ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: hotels.length,
+        itemBuilder: (context, index) {
+          return Container(
+            width: 150,
+            margin: EdgeInsets.all(8),
+            child: ListTile(
+              title: Text(hotels[index]["nama_hotel"]),
+              subtitle: Text('Rating: ${hotels[index]["rating"]}'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Detail(hotel: hotels[index]),
+                  ),
+                );
+              },
+            ),
+          );
+        },
+      ),
+    );
   }
 }
 

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hotel_mobile/page/detail_page.dart';
+import 'package:hotel_mobile/page/home_page.dart';
 
 class Search extends StatefulWidget {
   const Search({super.key});
@@ -49,10 +50,33 @@ class _SearchState extends State
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        onTap: (value) {
+        if (value == 0) Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => Home(),
+          ),
+        );
+        if (value == 1) Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => Home(),
+          ),
+        );
+        if (value == 2) Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => Search(),
+          ),
+        );
+        if (value == 3) Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => Home(),
+          ),
+        );
+        },
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'explore'),
           BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'favorite'),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'profile'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile'),
         ]
       ),
