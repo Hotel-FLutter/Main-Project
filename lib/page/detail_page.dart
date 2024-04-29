@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class Detail extends StatelessWidget {
   final Map<String, dynamic> hotel;
@@ -7,6 +8,13 @@ class Detail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String priceString = hotel['book'].toString();
+    double priceDouble = double.parse(priceString);
+
+    String formattedPrice = NumberFormat.currency(
+      locale: 'id_ID', // Ganti dengan locale yang sesuai
+      symbol: 'Rp',
+    ).format(priceDouble);
     return Scaffold(
       body: 
         Stack(
@@ -233,13 +241,13 @@ class Detail extends StatelessWidget {
                     child:
                       const Text('From'),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
                     child:
                     Row(
                       children: [
-                        Text('Rp. 120.000', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
-                        Text('/ Night'),
+                        Text(formattedPrice, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
+                        const Text('/ Night'),
                       ],
                     ),
                   ),

@@ -6,6 +6,7 @@
     "rating": 4.5,
     "deskripsi": "Hotel mewah dengan pemandangan Sungai Mahakam, menawarkan kolam renang outdoor, restoran, dan layanan spa.",
     "kecamatan": "Samarinda Utara",
+    "book": 1000000,
     "reviews": [
       {"nama_pengulas": "Rudi", "ulasan": "Pelayanan yang ramah, kamar bersih, dan sarapan enak."},
       {"nama_pengulas": "Siti", "ulasan": "Lokasi strategis, dekat dengan pusat perbelanjaan."},
@@ -19,6 +20,7 @@
     "rating": 4.2,
     "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, dan bar. Terletak di pusat kota Samarinda.",
     "kecamatan": "Samarinda Ulu",
+    "book": 800000,
     "reviews": [
       {"nama_pengulas": "Ani", "ulasan": "Kamar yang nyaman dan pelayanan yang ramah."},
       {"nama_pengulas": "Ridwan", "ulasan": "Lokasi strategis, dekat dengan tempat makan dan pusat perbelanjaan."},
@@ -32,6 +34,7 @@
     "rating": 4.3,
     "deskripsi": "Hotel bintang 4 dengan pemandangan Sungai Mahakam, menawarkan kolam renang outdoor, restoran, dan layanan spa.",
     "kecamatan": "Samarinda Ilir",
+    "book": 1200000,
     "reviews": [
       {"nama_pengulas": "Lia", "ulasan": "Kamar yang bersih dan nyaman, pemandangan sungai yang indah."},
       {"nama_pengulas": "Ahmad", "ulasan": "Pelayanan yang ramah dan fasilitas yang lengkap."},
@@ -45,6 +48,7 @@
     "rating": 4.1,
     "deskripsi": "Hotel bintang 3 dengan kolam renang, restoran, bar, dan pusat kebugaran. Terletak di pusat kota Samarinda.",
     "kecamatan": "Samarinda Seberang",
+    "book": 700000,
     "reviews": [
       {"nama_pengulas": "Nia", "ulasan": "Kamar yang nyaman dan bersih, staf hotel ramah."},
       {"nama_pengulas": "Hadi", "ulasan": "Lokasi strategis, dekat dengan tempat makan dan pusat perbelanjaan."},
@@ -58,6 +62,7 @@
     "rating": 4.0,
     "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, dan layanan spa. Terletak di pusat kota Samarinda.",
     "kecamatan": "Samarinda Kota",
+    "book": 600000,
     "reviews": [
       {"nama_pengulas": "Rini", "ulasan": "Kamar yang bersih dan nyaman, pemandangan sungai yang indah."},
       {"nama_pengulas": "Firman", "ulasan": "Pelayanan yang ramah dan fasilitas yang lengkap."},
@@ -71,6 +76,7 @@
     "rating": 4.2,
     "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, bar, dan pusat kebugaran. Terletak di pusat kota Samarinda.",
     "kecamatan": "Samarinda Ulu",
+    "book": 750000,
     "reviews": [
       {"nama_pengulas": "Toni", "ulasan": "Kamar yang nyaman dan bersih, staf hotel ramah."},
       {"nama_pengulas": "Nina", "ulasan": "Lokasi strategis, dekat dengan tempat makan dan pusat perbelanjaan."},
@@ -84,6 +90,7 @@
     "rating": 4.4,
     "deskripsi": "Hotel mewah dengan fasilitas kolam renang, restoran, bar, dan layanan spa. Terletak di pusat kota Samarinda.",
     "kecamatan": "Samarinda Ilir",
+    "book": 1100000,
     "reviews": [
       {"nama_pengulas": "Dewa", "ulasan": "Pemandangan kota yang indah dari kamar hotel."},
       {"nama_pengulas": "Sari", "ulasan": "Pelayanan yang ramah dan fasilitas yang lengkap."},
@@ -97,6 +104,7 @@
     "rating": 4.0,
     "deskripsi": "Hotel yang nyaman dengan fasilitas restoran, bar, meeting room, dan kolam renang. Terletak dekat dengan bandara Samarinda.",
     "kecamatan": "Samarinda Ulu",
+    "book": 900000,
     "reviews": [
       {"nama_pengulas": "Lani", "ulasan": "Kamar yang bersih dan nyaman, pelayanan cepat."},
       {"nama_pengulas": "Robby", "ulasan": "Fasilitas meeting room yang lengkap dan nyaman untuk rapat bisnis."},
@@ -110,6 +118,7 @@
     "rating": 4.1,
     "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, bar, dan pusat kebugaran. Terletak di pusat kota Samarinda.",
     "kecamatan": "Samarinda Ilir",
+    "book": 850000,
     "reviews": [
       {"nama_pengulas": "Lina", "ulasan": "Kamar yang nyaman dan bersih, staf hotel ramah."},
       {"nama_pengulas": "Hendro", "ulasan": "Lokasi strategis, dekat dengan tempat makan dan pusat perbelanjaan."},
@@ -123,6 +132,7 @@
     "rating": 4.0,
     "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, bar, dan meeting room. Terletak di pusat kota Samarinda.",
     "kecamatan": "Samarinda Ulu",
+    "book": 750000,
     "reviews": [
       {"nama_pengulas": "Rina", "ulasan": "Kamar yang bersih dan nyaman, pemandangan sungai yang indah."},
       {"nama_pengulas": "Farhan", "ulasan": "Pelayanan yang ramah dan fasilitas yang lengkap."},
@@ -130,4 +140,3 @@
     ]
   }
 ]
-  
