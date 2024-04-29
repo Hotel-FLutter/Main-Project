@@ -1,13 +1,17 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:hotel_mobile/page/detail_page.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: HomeScreen(),
+    home: Home(),
   ));
 }
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +27,6 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 20),
             CustomNavBar(userName: 'John Doe'),
             SizedBox(height: 20),
-            SearchSection(),
             SizedBox(height: 20),
             RecommendedHotelsSection(),
             SizedBox(height: 20),
@@ -62,23 +65,55 @@ class CustomNavBar extends StatelessWidget {
   }
 }
 
-class SearchSection extends StatelessWidget {
+class Recommended extends StatefulWidget {
+  const Recommended({super.key});
+
+  @override
+  State<Recommended> createState() => _RecommendedState();
+}
+
+class _RecommendedState extends State<Recommended> {
+  List<dynamic> hotels = [];
+
+  Future<void> loadHotelData() async {
+    String hotelDataString = await rootBundle.loadString('data/hotel_data.json');
+    setState(() {
+      hotels = json.decode(hotelDataString);
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    loadHotelData();
+  }
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.0),
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: TextField(
-        decoration: InputDecoration(
-          prefixIcon: Icon(Icons.search),
-          hintText: 'Search for hotels...',
-          border: InputBorder.none,
-        ),
-      ),
-    );
+              height: 200,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: hotels.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    width: 150,
+                    margin: EdgeInsets.all(8),
+                    child: ListTile(
+                      title: Text(hotels[index]["nama_hotel"]),
+                      subtitle: Text('Rating: ${hotels[index]["rating"]}'),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Detail(hotel: hotels[index]),
+                          ),
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
+            );
   }
 }
 
@@ -93,54 +128,8 @@ class RecommendedHotelsSection extends StatelessWidget {
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         SizedBox(height: 10),
-        Container(
-          height: 200,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: 5,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.only(right: 8.0),
-                child: RecommendedHotelCard(),
-              );
-            },
-          ),
-        ),
+        Recommended()
       ],
-    );
-  }
-}
-
-class RecommendedHotelCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 150,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Colors.grey[300],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-            child: Image.asset(
-              'assets/image/gallery1.png',
-              height: 120,
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-              'Hotel Name',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
