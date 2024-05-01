@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hotel_mobile/gen/fonts.gen.dart';
 import 'package:hotel_mobile/page/detail_page.dart';
 import 'package:hotel_mobile/page/search_page.dart';
 

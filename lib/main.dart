@@ -25,8 +25,8 @@ class Hotel extends StatelessWidget {
       ),
       routes: {
         '/' : (context) => const Home(),
-        '/reservasi' : (context) => const Reserve(),
         '/search' : (context) => const Search(),
+        '/reserve' : (context) => const Reserve(hotel :{}),
         '/detail' : (context) => const Detail(hotel: {},),
       },
     );

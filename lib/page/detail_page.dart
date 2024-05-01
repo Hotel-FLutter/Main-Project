@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hotel_mobile/page/reserve_page.dart';
 import 'package:intl/intl.dart';
 
 class Detail extends StatelessWidget {
@@ -80,7 +81,7 @@ class Detail extends StatelessWidget {
                               Text('${hotel['reviews'].length} reviews'),
                           ],
                         ),
-                        )                      
+                        )
                       ),
                       const SizedBox(height: 10,),
                       Container(
@@ -253,22 +254,24 @@ class Detail extends StatelessWidget {
                   ),
                 ],
               ),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-                decoration: BoxDecoration(
-                  color: Colors.green,
-                  borderRadius: BorderRadius.circular(50)
+              ElevatedButton(
+                style: ButtonStyle(
+                  padding: MaterialStatePropertyAll(EdgeInsets.symmetric(horizontal: 30, vertical: 15)),
+                  backgroundColor: MaterialStatePropertyAll(Colors.green)
                 ),
-                child: const Column(
-                  children: [
-                    ButtonBar(
-                      children: [
-                        Text('Reserve', style: TextStyle(color: Colors.white))
-                      ],
-                    )
-                  ],
-                ),
-              )
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Reserve(hotel: hotel),
+                    ),
+                  );
+                },
+                child: Text('Reserve', style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16
+                ),),
+              ),
             ],
           ),
         ),
