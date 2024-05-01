@@ -1,7 +1,8 @@
 [
   {
-    "nama_hotel": "Hotel Grand Kartika Samarinda",
+    "nama_hotel": "Hotel Grand Sartika Samarinda",
     "fasilitas": ["Kolam Renang", "Restoran", "Fitness Center", "Spa"],
+    "gambar":"assets/grandSartika.jpg",
     "nama_jalan": "Jl. Pangeran Diponegoro No.17",
     "rating": 4.5,
     "deskripsi": "Hotel mewah dengan pemandangan Sungai Mahakam, menawarkan kolam renang outdoor, restoran, dan layanan spa.",
@@ -16,6 +17,7 @@
   {
     "nama_hotel": "Hotel Mesra International",
     "fasilitas": ["Kolam Renang", "Restoran", "Bar", "Gym"],
+    "gambar":"assets/mesra.jpeg",
     "nama_jalan": "Jl. Pangeran Hidayatullah No. 21",
     "rating": 4.2,
     "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, dan bar. Terletak di pusat kota Samarinda.",
@@ -30,6 +32,7 @@
   {
     "nama_hotel": "Swiss-Belhotel Borneo Samarinda",
     "fasilitas": ["Kolam Renang", "Restoran", "Fitness Center", "Spa"],
+    "gambar":"assets/swissbell.jpg",
     "nama_jalan": "Jl. Mulawarman No. 6",
     "rating": 4.3,
     "deskripsi": "Hotel bintang 4 dengan pemandangan Sungai Mahakam, menawarkan kolam renang outdoor, restoran, dan layanan spa.",
@@ -44,6 +47,7 @@
   {
     "nama_hotel": "Swiss-Belinn Manyar Samarinda",
     "fasilitas": ["Kolam Renang", "Restoran", "Bar", "Fitness Center"],
+    "gambar":"assets/Hotel.jpg",
     "nama_jalan": "Jl. Awang Long No. 1",
     "rating": 4.1,
     "deskripsi": "Hotel bintang 3 dengan kolam renang, restoran, bar, dan pusat kebugaran. Terletak di pusat kota Samarinda.",
@@ -58,6 +62,7 @@
   {
     "nama_hotel": "Hotel Bumi Senyiur Samarinda",
     "fasilitas": ["Kolam Renang", "Restoran", "Fitness Center", "Spa"],
+    "gambar":"assets/bumiSenyiur.webp",
     "nama_jalan": "Jl. Untung Suropati No. 8",
     "rating": 4.0,
     "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, dan layanan spa. Terletak di pusat kota Samarinda.",
@@ -72,6 +77,7 @@
   {
     "nama_hotel": "Hotel Bumi Sebalo",
     "fasilitas": ["Kolam Renang", "Restoran", "Bar", "Fitness Center"],
+    "gambar":"assets/Hotel.jpg",
     "nama_jalan": "Jl. Gatot Subroto No. 12",
     "rating": 4.2,
     "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, bar, dan pusat kebugaran. Terletak di pusat kota Samarinda.",
@@ -86,6 +92,7 @@
   {
     "nama_hotel": "Hotel Grand Victoria",
     "fasilitas": ["Kolam Renang", "Restoran", "Bar", "Spa"],
+    "gambar":"assets/grandVictoria.jpg",
     "nama_jalan": "Jl. A. Yani No. 1",
     "rating": 4.4,
     "deskripsi": "Hotel mewah dengan fasilitas kolam renang, restoran, bar, dan layanan spa. Terletak di pusat kota Samarinda.",
@@ -100,6 +107,7 @@
   {
     "nama_hotel": "Hotel Borneo Bandara Samarinda",
     "fasilitas": ["Restoran", "Bar", "Meeting Room", "Kolam Renang"],
+    "gambar":"assets/Hotel.jpg",
     "nama_jalan": "Jl. Sudirman No. 28",
     "rating": 4.0,
     "deskripsi": "Hotel yang nyaman dengan fasilitas restoran, bar, meeting room, dan kolam renang. Terletak dekat dengan bandara Samarinda.",
@@ -114,6 +122,7 @@
   {
     "nama_hotel": "Hotel Cendana Mulia",
     "fasilitas": ["Kolam Renang", "Restoran", "Bar", "Fitness Center"],
+    "gambar":"assets/selycaMulia.jpg",
     "nama_jalan": "Jl. Cendana No. 10",
     "rating": 4.1,
     "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, bar, dan pusat kebugaran. Terletak di pusat kota Samarinda.",
@@ -128,6 +137,7 @@
   {
     "nama_hotel": "Hotel City Garden Samarinda",
     "fasilitas": ["Kolam Renang", "Restoran", "Bar", "Meeting Room"],
+    "gambar":"assets/aston.jpg",
     "nama_jalan": "Jl. P. Diponegoro No. 2",
     "rating": 4.0,
     "deskripsi": "Hotel yang nyaman dengan fasilitas kolam renang, restoran, bar, dan meeting room. Terletak di pusat kota Samarinda.",

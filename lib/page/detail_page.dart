@@ -23,7 +23,7 @@ class Detail extends StatelessWidget {
               children: [
                 Column(
                   children: <Widget>[
-                      Image.asset('assets/Hotel.jpg', fit: BoxFit.cover, height: 300,),
+                      Image.asset(hotel['gambar'], fit: BoxFit.cover, height: 300, width: double.maxFinite,),
                       Row(
                         children: [
                           Container(
