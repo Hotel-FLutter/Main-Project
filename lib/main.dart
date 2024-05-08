@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hotel_mobile/page/home_page.dart';
-
-import 'package:flutter_config/flutter_config.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:flutter/services.dart';
+import '../Views/auth.dart';
 
 // import 'gen/colors.gen.dart';
 // // import 'gen/fonts.gen.dart';
