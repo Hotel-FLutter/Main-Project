@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sqlite_auth_app/page/home_page.dart';
 import '../Components/button.dart';
 import '../Components/colors.dart';
 import '../Components/textfield.dart';
 import '../JSON/users.dart';
-import '../Views/profile.dart';
 import '../Views/signup.dart';
 
 import '../SQLite/database_helper.dart';
@@ -32,14 +32,13 @@ class _LoginScreenState extends State<LoginScreen> {
     var res = await db
         .authenticate(Users(usrName: usrName.text, password: password.text));
     if (res == true) {
-      //If result is correct then go to profile or home
-      if (!mounted) return;
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => Profile(profile: usrDetails)));
+      // ignore: use_build_context_synchronously
+      Navigator.pushAndRemoveUntil(context,
+        MaterialPageRoute(builder: (context) => Home(profile: usrDetails)),
+        (Route<dynamic> route) => false,
+      );
     } else {
-      //Otherwise show the error message
+      // Tampilkan pesan kesalahan jika login gagal
       setState(() {
         isLoginTrue = true;
       });

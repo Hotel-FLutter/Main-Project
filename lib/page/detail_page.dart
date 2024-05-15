@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sqlite_auth_app/JSON/users.dart';
+import 'package:flutter_sqlite_auth_app/page/reserve_page.dart';
 import 'package:intl/intl.dart';
 
 class Detail extends StatelessWidget {
   final Map<String, dynamic> hotel;
-
-  const Detail({Key? key, required this.hotel});
+  final Users? profile;
+  const Detail({Key? key, required this.hotel, this.profile});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +24,10 @@ class Detail extends StatelessWidget {
             children: [
               Column(
                 children: <Widget>[
-                  Image.asset(
-                    'assets/Hotel.jpg',
-                    fit: BoxFit.cover,
-                    height: 300,
-                  ),
+                  Image.asset(hotel['gambar'], 
+                    fit: BoxFit.cover, 
+                    height: 300, 
+                    width: double.maxFinite,),
                   Row(
                     children: [
                       Container(
@@ -278,22 +279,25 @@ class Detail extends StatelessWidget {
                 ),
               ],
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
-              decoration: BoxDecoration(
-                  color: Colors.green, borderRadius: BorderRadius.circular(50)),
-              child: const Column(
-                children: [
-                  ButtonBar(
-                    children: [
-                      Text('Reserve', style: TextStyle(color: Colors.white))
-                    ],
-                  )
-                ],
+            ElevatedButton(
+              style: const ButtonStyle(
+                padding: MaterialStatePropertyAll(EdgeInsets.symmetric(horizontal: 30, vertical: 15)),
+                backgroundColor: MaterialStatePropertyAll(Colors.green)
               ),
-            )
-          ],
-        ),
+              onPressed: () {
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Reserve(hotel: hotel, profile: profile,),
+                  ),
+                );
+              },
+              child: const Text('Reserve', style: TextStyle(
+                color: Colors.white,
+                fontSize: 16
+            ),),
+          )
+        ],),
       ),
     );
   }

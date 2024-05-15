@@ -12,7 +12,7 @@ class AuthScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-          child: Center(
+        child: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Column(

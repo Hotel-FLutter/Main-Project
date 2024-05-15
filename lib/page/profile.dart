@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import '../Components/button.dart';
 import '../Components/colors.dart';
 import '../JSON/users.dart';
-import '../Views/login.dart';
 
 class Profile extends StatelessWidget {
   final Users? profile;
@@ -35,14 +33,6 @@ class Profile extends StatelessWidget {
                 profile!.email ?? "",
                 style: const TextStyle(fontSize: 17, color: Colors.grey),
               ),
-              Button(
-                  label: "SIGN UP",
-                  press: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const LoginScreen()));
-                  }),
               ListTile(
                 leading: const Icon(Icons.person, size: 30),
                 subtitle: const Text("Full name"),
@@ -58,6 +48,28 @@ class Profile extends StatelessWidget {
                 subtitle: Text(profile!.usrName),
                 title: const Text("admin"),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  
+                },
+                style: 
+                  ButtonStyle(
+                    backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                      (Set<MaterialState> states) {
+                        if (states.contains(MaterialState.pressed)) {
+                          // Ketika tombol ditekan
+                          return Colors.red; // Ubah warna saat tombol ditekan
+                        }
+                        // Warna default saat tidak ditekan
+                        return Colors.red;
+                      },
+                    ),
+                  ),
+                child: 
+                  const Text('Log Out', style: TextStyle(
+                    color: Colors.white
+                  ),)
+              )
             ],
           ),
         )),

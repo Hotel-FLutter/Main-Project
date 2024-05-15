@@ -20,8 +20,25 @@ class Users {
     required this.password,
   });
 
-  //These json value must be same as your column name in database that we have already defined
-  //one column didn't match
+static Users? _currentUser;
+
+  static Users? get currentUser => _currentUser;
+
+  // Method untuk mengatur pengguna yang sedang login
+  static void setCurrentUser(Users user) {
+    _currentUser = user;
+  }
+
+  // Method untuk memuat pengguna yang sedang login dari SQLite
+  static void loadCurrentUser(Users user) {
+    _currentUser = user;
+  }
+
+  // Method untuk menghapus pengguna yang sedang login
+  static void logout() {
+    _currentUser = null;
+  }
+  
   factory Users.fromMap(Map<String, dynamic> json) => Users(
     usrId: json["usrId"],
     fullName: json["fullName"],

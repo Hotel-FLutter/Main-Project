@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sqlite_auth_app/page/home_page.dart';
 import '../Components/button.dart';
 import '../Components/colors.dart';
 import '../Components/textfield.dart';
 import '../JSON/users.dart';
-import '../Views/profile.dart';
 import '../Views/signup.dart';
 
 import '../SQLite/database_helper.dart';
@@ -32,14 +32,12 @@ class _LoginScreenState extends State<LoginScreen> {
     var res = await db
         .authenticate(Users(usrName: usrName.text, password: password.text));
     if (res == true) {
-      //If result is correct then go to profile or home
       if (!mounted) return;
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => Profile(profile: usrDetails)));
+              builder: (context) => Home(profile: usrDetails)));
     } else {
-      //Otherwise show the error message
       setState(() {
         isLoginTrue = true;
       });
@@ -55,9 +53,6 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                //Because we don't have account, we must create one to authenticate
-                //lets go to sign up
-
                 const Text(
                   "LOGIN",
                   style: TextStyle(color: primaryColor, fontSize: 40),

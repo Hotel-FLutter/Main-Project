@@ -2,18 +2,20 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_sqlite_auth_app/page/profile.dart';
 import 'package:flutter_sqlite_auth_app/page/search_page.dart';
+import '../JSON/users.dart';
 import 'detail_page.dart';
-import 'search_page.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: Home(),
   ));
 }
 
 class Home extends StatefulWidget {
-  const Home({super.key});
+  final Users? profile;
+  const Home({super.key, this.profile});
 
   @override
   State<Home> createState() => _HomeState();
@@ -22,12 +24,18 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   
   int currentIndex = 0;
-  final screens =[
-    HomePage(),
-    HomePage(),
-    Search(),
-    Search(),
-  ];
+  late final List<Widget> screens;
+
+  @override
+  void initState() {
+    super.initState();
+    screens = [
+      HomePage(profile: widget.profile,),
+      HomePage(profile: widget.profile),
+      const Search(),
+      Profile(profile: widget.profile),
+    ];
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -38,7 +46,7 @@ class _HomeState extends State<Home> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              margin: EdgeInsets.all(15),
+              margin: const EdgeInsets.all(15),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: BottomNavigationBar(
@@ -68,7 +76,8 @@ class _HomeState extends State<Home> {
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final Users? profile;
+  const HomePage({super.key, this.profile});
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +90,7 @@ class HomePage extends StatelessWidget {
             ClipOval(
               child: Image.asset('assets/Hotel.jpg', width: 40, height: 40, fit: BoxFit.cover,),
             ),
-            Column(
+            const Column(
               children: [
                 Text('Current Location', style: TextStyle(
                   fontSize: 16
@@ -97,25 +106,25 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
-            Icon(Icons.notifications_active)
+            const Icon(Icons.notifications_active)
           ],
         )
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomNavBar(userName: 'John Doe'),
-            SizedBox(height: 10),
-            RecommendedHotelsSection(),
-            SizedBox(height: 20),
-            FacilitySection(),
-            SizedBox(height: 20),
-            ListMenu(),
-            SizedBox(height: 20),
-            DiscountSection(),
-            SizedBox(height: 100),
+            const CustomNavBar(userName: 'John Doe'),
+            const SizedBox(height: 10),
+            RecommendedHotelsSection(profile:profile),
+            const SizedBox(height: 20),
+            const FacilitySection(),
+            const SizedBox(height: 20),
+            const ListMenu(),
+            const SizedBox(height: 20),
+            const DiscountSection(),
+            const SizedBox(height: 100),
           ],
         ),
       ),
@@ -131,24 +140,23 @@ class CustomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Container(
-        padding: EdgeInsets.all(15),
-        decoration: BoxDecoration(
-          color: Colors.greenAccent,
-          borderRadius: BorderRadius.circular(10)
-        ),
-        alignment: Alignment.center,
-        child: Text('Welcome back, $userName!', style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w600
-          ), textAlign: TextAlign.center,),
-      )
+      padding: const EdgeInsets.all(15),
+      decoration: BoxDecoration(
+        color: Colors.greenAccent,
+        borderRadius: BorderRadius.circular(10)
+      ),
+      alignment: Alignment.center,
+      child: Text('Welcome back, $userName!', style: const TextStyle(
+          fontSize: 24,
+          fontWeight: FontWeight.w600
+        ), textAlign: TextAlign.center,),
     );
   }
 }
 
-class Recommended extends StatefulWidget {
-  const Recommended({super.key});
+class Recommended extends StatefulWidget { 
+  final Users? profile;
+  const Recommended({super.key, this.profile});
 
   @override
   State<Recommended> createState() => _RecommendedState();
@@ -172,7 +180,7 @@ class _RecommendedState extends State<Recommended> {
   }
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 300,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -184,30 +192,30 @@ class _RecommendedState extends State<Recommended> {
             ),
             // alignment: Alignment.center,
             width: 230,
-            margin: EdgeInsets.all(8),
+            margin: const EdgeInsets.all(8),
             child: Column(
               children: [
                 Image.asset(hotels[index]['gambar'], height: 160, width: 280, 
                 fit: BoxFit.cover,),
                 ListTile(
-                  title: Text(hotels[index]["nama_hotel"], style: TextStyle(
+                  title: Text(hotels[index]["nama_hotel"], style: const TextStyle(
                     fontSize: 16
                   ),),
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Row(
                         children: [
-                          Icon(Icons.location_on, size: 20,),
+                          const Icon(Icons.location_on, size: 20,),
                           Text('${hotels[index]['kecamatan']}'),
                         ],
                       ),
                       Row(
                         children: [
-                          Icon(Icons.star, size: 20,),
+                          const Icon(Icons.star, size: 20,),
                           Text('Rating ${hotels[index]['rating']}'),
                         ],
                       ),
@@ -217,7 +225,7 @@ class _RecommendedState extends State<Recommended> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => Detail(hotel: hotels[index]),
+                        builder: (context) => Detail(hotel: hotels[index], profile: widget.profile,),
                       ),
                     );
                   },
@@ -232,17 +240,20 @@ class _RecommendedState extends State<Recommended> {
 }
 
 class RecommendedHotelsSection extends StatelessWidget {
+  final Users? profile;
+  const RecommendedHotelsSection({super.key, this.profile});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Recommended Hotels',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 10),
-        Recommended()
+        const SizedBox(height: 10),
+        Recommended(profile: profile,)
       ],
     );
   }
@@ -259,31 +270,31 @@ class _FacilitySectionState extends State<FacilitySection> {
   List<dynamic> facility =[
     {
       'nama':"Kolam Renang",
-      'icon': Icon(Icons.pool_outlined)
+      'icon': const Icon(Icons.pool_outlined)
     },
     {
       'nama':"Restoran",
-      'icon': Icon(Icons.restaurant)
+      'icon': const Icon(Icons.restaurant)
     },
     {
       'nama':"Bar",
-      'icon': Icon(Icons.local_cafe_outlined)
+      'icon': const Icon(Icons.local_cafe_outlined)
     },
     {
       'nama':"Spa",
-      'icon': Icon(Icons.spa_outlined)
+      'icon': const Icon(Icons.spa_outlined)
     },
     {
       'nama':"Meeting Room",
-      'icon': Icon(Icons.meeting_room_outlined)
+      'icon': const Icon(Icons.meeting_room_outlined)
     },
     {
       'nama':"Fitness Center",
-      'icon': Icon(Icons.fitness_center_outlined)
+      'icon': const Icon(Icons.fitness_center_outlined)
     },
     {
       'nama':"Gym",
-      'icon': Icon(Icons.sports_gymnastics_outlined)
+      'icon': const Icon(Icons.sports_gymnastics_outlined)
     },
   ];
   @override
@@ -291,7 +302,7 @@ class _FacilitySectionState extends State<FacilitySection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Facility',
+        const Text('Facility',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),
         ),
         Container(
@@ -307,7 +318,7 @@ class _FacilitySectionState extends State<FacilitySection> {
               decoration: BoxDecoration(
                 border: Border.all(color: Colors.black)
               ),
-              margin: EdgeInsets.all(8),
+              margin: const EdgeInsets.all(8),
               child: ListTile(
                 title: facility[index]['icon'],
                 subtitle: Text(facility[index]['nama'], textAlign: TextAlign.center,),
@@ -322,18 +333,20 @@ class _FacilitySectionState extends State<FacilitySection> {
 }
 
 class DiscountSection extends StatelessWidget {
+  const DiscountSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Discounts',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         Container(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           decoration: BoxDecoration(
             color: Colors.blue[100],
             borderRadius: BorderRadius.circular(10),
@@ -341,20 +354,20 @@ class DiscountSection extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Special Offer!',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 'Get 20% off on selected hotels. Book now!',
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               ElevatedButton(
                 onPressed: () {
                   // Aksi saat tombol discount diklik
                 },
-                child: Text('View Discounts'),
+                child: const Text('View Discounts'),
               ),
             ],
           ),
@@ -391,15 +404,16 @@ class _ListMenuState extends State<ListMenu> {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.only(bottom: 10),
+          margin: const EdgeInsets.only(bottom: 10),
           alignment: Alignment.topLeft,
-          child: Text('Featured Hotel',
+          child: const Text('Featured Hotel',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),
             ),
         ),
-        Container(
+        SizedBox(
           height: 250,
           child: ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
             itemCount: hotels.length  > 3 ? 3 : hotels.length,
             itemBuilder: (context, index) {
               return ListTile(

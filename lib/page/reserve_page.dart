@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sqlite_auth_app/JSON/users.dart';
+import 'package:intl/intl.dart';
 
 class Reserve extends StatefulWidget {
   final Map<String, dynamic> hotel;
-
-  const Reserve({Key? key, required this.hotel}) : super(key: key);
+  final Users? profile;
+  const Reserve({Key? key, required this.hotel, this.profile}) : super(key: key);
 
   @override
   State<Reserve> createState() => _ReserveState();
@@ -13,6 +15,26 @@ class _ReserveState extends State<Reserve> {
   DateTime? _checkInDate;
   DateTime? _checkOutDate;
   int _selectedBed = 1;
+  
+
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
+
+  @override
+    void initState() {
+      super.initState();
+      if (widget.profile != null) {
+        _emailController.text = widget.profile!.email ?? "";
+        _nameController.text = widget.profile!.usrName;
+      }
+    }
+
+  @override
+    void dispose() {
+      _emailController.dispose();
+      _nameController.dispose();
+      super.dispose();
+    }
 
   void _showCheckInDatePicker() async {
     final DateTime? picked = await showDatePicker(
@@ -44,9 +66,12 @@ class _ReserveState extends State<Reserve> {
 
   @override
   Widget build(BuildContext context) {
+    String priceString = widget.hotel['book'].toString();
+    double priceDouble = double.parse(priceString);
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Reserve'),
+        title: const Text('Reserve'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -54,19 +79,21 @@ class _ReserveState extends State<Reserve> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
-              decoration: InputDecoration(
+              controller: _emailController,
+              decoration: const InputDecoration(
                 labelText: 'Email',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
-              decoration: InputDecoration(
+              controller: _nameController,
+              decoration: const InputDecoration(
                 labelText: 'Name',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 16),
+            const  SizedBox(height: 16),
             DropdownButtonFormField<int>(
               value: _selectedBed,
               onChanged: (value) {
@@ -74,7 +101,7 @@ class _ReserveState extends State<Reserve> {
                   _selectedBed = value!;
                 });
               },
-              items: [
+              items: const [
                 DropdownMenuItem<int>(
                   value: 1,
                   child: Text('1 Bed'),
@@ -88,19 +115,19 @@ class _ReserveState extends State<Reserve> {
                   child: Text('3 Beds'),
                 ),
               ],
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Number of Beds',
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Row(
               children: [
                 Expanded(
                   child: TextField(
                     readOnly: true,
                     onTap: _showCheckInDatePicker,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Check-in Date',
                       border: OutlineInputBorder(),
                     ),
@@ -111,12 +138,12 @@ class _ReserveState extends State<Reserve> {
                           ),
                   ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Expanded(
                   child: TextField(
                     readOnly: true,
                     onTap: _showCheckOutDatePicker,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Check-out Date',
                       border: OutlineInputBorder(),
                     ),
@@ -129,17 +156,22 @@ class _ReserveState extends State<Reserve> {
                 ),
               ],
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextField(
               readOnly: true,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Total Price',
                 border: OutlineInputBorder(),
               ),
               controller: _checkInDate == null || _checkOutDate == null
                   ? null
                   : TextEditingController(
-                      text: 'Total Price: \$${_selectedBed * _checkOutDate!.difference(_checkInDate!).inDays * 100}',
+                      text: NumberFormat.currency(
+                          locale: 'id_ID',
+                          symbol: 'Rp',
+                        ).format(
+                          _selectedBed * _checkOutDate!.difference(_checkInDate!).inDays * priceDouble
+                        ),
                     ),
             ),
           ],
