@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sqlite_auth_app/Components/button.dart';
+import 'package:flutter_sqlite_auth_app/JSON/hotels.dart';
 import 'package:flutter_sqlite_auth_app/JSON/users.dart';
+import 'package:flutter_sqlite_auth_app/SQLite/database_helper.dart';
+import 'package:flutter_sqlite_auth_app/page/home_page.dart';
 import 'package:intl/intl.dart';
 
 class Reserve extends StatefulWidget {
@@ -15,6 +19,14 @@ class _ReserveState extends State<Reserve> {
   DateTime? _checkInDate;
   DateTime? _checkOutDate;
   int _selectedBed = 1;
+  final db = DatabaseHelper();
+  reserve()async{
+    var res = await db.createHotel(Hotels(hotelName: widget.hotel['nama_hotel'], book: widget.hotel['book'], checkInDate: _checkInDate, checkOutDate: _checkOutDate, status: 'unSaved'));
+    if(res>0){
+      if(!mounted)return;
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> Home(profile: widget.profile,)));
+    }
+  }
   
 
   final TextEditingController _emailController = TextEditingController();
@@ -174,6 +186,9 @@ class _ReserveState extends State<Reserve> {
                         ),
                     ),
             ),
+            Button(label: "Reserve Now", press: (){
+              reserve();
+            }),
           ],
         ),
       ),

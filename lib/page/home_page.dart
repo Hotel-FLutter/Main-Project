@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_sqlite_auth_app/JSON/hotels.dart';
+import 'package:flutter_sqlite_auth_app/page/history_page.dart';
 import 'package:flutter_sqlite_auth_app/page/profile.dart';
 import 'package:flutter_sqlite_auth_app/page/search_page.dart';
 import '../JSON/users.dart';
@@ -15,7 +17,8 @@ void main() {
 
 class Home extends StatefulWidget {
   final Users? profile;
-  const Home({super.key, this.profile});
+  final Hotels? hotel;
+  const Home({super.key, this.profile, this.hotel});
 
   @override
   State<Home> createState() => _HomeState();
@@ -31,7 +34,7 @@ class _HomeState extends State<Home> {
     super.initState();
     screens = [
       HomePage(profile: widget.profile,),
-      HomePage(profile: widget.profile),
+      const History(),
       const Search(),
       Profile(profile: widget.profile),
     ];
@@ -61,8 +64,8 @@ class _HomeState extends State<Home> {
                   unselectedFontSize: 12,
                   items: const [
                     BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'explore'),
-                    BottomNavigationBarItem(icon: Icon(Icons.favorite), label: 'favorite'),
-                    BottomNavigationBarItem(icon: Icon(Icons.search), label: 'profile'),
+                    BottomNavigationBarItem(icon: Icon(Icons.history_toggle_off), label: 'history'),
+                    BottomNavigationBarItem(icon: Icon(Icons.search), label: 'search'),
                     BottomNavigationBarItem(icon: Icon(Icons.person), label: 'profile'),
                   ]
                 ),
@@ -115,7 +118,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CustomNavBar(userName: 'John Doe'),
+            CustomNavBar(userName: profile!.usrName),
             const SizedBox(height: 10),
             RecommendedHotelsSection(profile:profile),
             const SizedBox(height: 20),

@@ -37,6 +37,7 @@ static Users? _currentUser;
   // Method untuk menghapus pengguna yang sedang login
   static void logout() {
     _currentUser = null;
+    
   }
   
   factory Users.fromMap(Map<String, dynamic> json) => Users(

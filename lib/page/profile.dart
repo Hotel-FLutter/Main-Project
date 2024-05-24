@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_sqlite_auth_app/Views/auth.dart';
 import '../Components/colors.dart';
 import '../JSON/users.dart';
 
@@ -50,7 +51,13 @@ class Profile extends StatelessWidget {
               ),
               ElevatedButton(
                 onPressed: () {
-                  
+                  Users.logout();
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AuthScreen(),
+                  ),
+                );
                 },
                 style: 
                   ButtonStyle(

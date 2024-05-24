@@ -5,7 +5,6 @@ import '../Components/colors.dart';
 import '../Components/textfield.dart';
 import '../JSON/users.dart';
 import '../Views/signup.dart';
-
 import '../SQLite/database_helper.dart';
 
 class LoginScreen extends StatefulWidget {

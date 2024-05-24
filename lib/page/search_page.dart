@@ -49,8 +49,8 @@ class _SearchState extends State {
       appBar: AppBar(
         title: const Text('Hotel Samarinda'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(15),
+      body: Container(
+        padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
         child: Column(
           children: [
             TextField(
@@ -65,17 +65,25 @@ class _SearchState extends State {
               child: ListView.builder(
                 itemCount: foundHotels.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(foundHotels[index]["nama_hotel"]),
-                    subtitle: Text('Rating: ${foundHotels[index]["rating"]}'),
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                Detail(hotel: foundHotels[index]),
-                          ));
-                    },
+                  return Column(
+                    children: [
+                      Image.asset(foundHotels[index]['gambar'], height: 160, width: 400, 
+                        fit: BoxFit.cover,),
+                      ListTile(
+                        title: Text(foundHotels[index]["nama_hotel"], style: const TextStyle(
+                          fontWeight: FontWeight.bold
+                        ),),
+                        subtitle: Text('Rating: ${foundHotels[index]["rating"]}'),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    Detail(hotel: foundHotels[index]),
+                              ));
+                        },
+                      ),
+                    ],
                   );
                 },
               ),
