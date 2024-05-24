@@ -91,7 +91,7 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ClipOval(
-              child: Image.asset('assets/Hotel.jpg', width: 40, height: 40, fit: BoxFit.cover,),
+              child: Image.asset('assets/person.jpg', width: 40, height: 40, fit: BoxFit.cover,),
             ),
             const Column(
               children: [
