@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sqlite_auth_app/JSON/users.dart';
-import 'package:flutter_sqlite_auth_app/page/reserve_page.dart';
+import '../JSON/users.dart';
+import '../page/reserve_page.dart';
 import 'package:intl/intl.dart';
 
 class Detail extends StatelessWidget {

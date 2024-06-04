@@ -1,16 +1,18 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import '../JSON/users.dart';
 import 'detail_page.dart';
 
 class Search extends StatefulWidget {
-  const Search({super.key});
+  final Users? profile;
+  const Search({super.key, this.profile});
 
   @override
   _SearchState createState() => _SearchState();
 }
 
-class _SearchState extends State {
+class _SearchState extends State<Search> {
   List<dynamic> hotels = [];
   List<dynamic> foundHotels = [];
 
@@ -79,7 +81,7 @@ class _SearchState extends State {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    Detail(hotel: foundHotels[index]),
+                                    Detail(hotel: foundHotels[index], profile: widget.profile,),
                               ));
                         },
                       ),

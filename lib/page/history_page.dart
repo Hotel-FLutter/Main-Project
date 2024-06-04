@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sqlite_auth_app/SQLite/database_helper.dart';
+import '../SQLite/database_helper.dart';
 import 'package:intl/intl.dart';
-import '../Components/colors.dart';
 import '../JSON/hotels.dart';
 
 class History extends StatefulWidget {

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sqlite_auth_app/Components/button.dart';
-import 'package:flutter_sqlite_auth_app/JSON/hotels.dart';
-import 'package:flutter_sqlite_auth_app/JSON/users.dart';
-import 'package:flutter_sqlite_auth_app/SQLite/database_helper.dart';
-import 'package:flutter_sqlite_auth_app/page/home_page.dart';
+import '../Components/button.dart';
+import '../JSON/hotels.dart';
+import '../JSON/users.dart';
+import '../SQLite/database_helper.dart';
+import '../page/home_page.dart';
 import 'package:intl/intl.dart';
 
 class Reserve extends StatefulWidget {

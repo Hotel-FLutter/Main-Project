@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sqlite_auth_app/page/home_page.dart';
+import '../page/home_page.dart';
 import '../Components/button.dart';
 import '../Components/colors.dart';
 import '../Components/textfield.dart';

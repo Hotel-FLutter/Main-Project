@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../Components/colors.dart';
 
 //We are going to design our own button
 

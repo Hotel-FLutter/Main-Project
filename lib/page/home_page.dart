@@ -2,10 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_sqlite_auth_app/JSON/hotels.dart';
-import 'package:flutter_sqlite_auth_app/page/history_page.dart';
-import 'package:flutter_sqlite_auth_app/page/profile.dart';
-import 'package:flutter_sqlite_auth_app/page/search_page.dart';
+import '../JSON/hotels.dart';
+import '../page/history_page.dart';
+import '../page/profile.dart';
+import '../page/search_page.dart';
 import '../JSON/users.dart';
 import 'detail_page.dart';
 
@@ -33,9 +33,9 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
     screens = [
-      HomePage(profile: widget.profile,),
+      HomePage(profile: widget.profile),
       const History(),
-      const Search(),
+      Search(profile: widget.profile),
       Profile(profile: widget.profile),
     ];
   }
@@ -124,7 +124,7 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 20),
             const FacilitySection(),
             const SizedBox(height: 20),
-            const ListMenu(),
+            ListMenu(profile: profile,),
             const SizedBox(height: 20),
             const DiscountSection(),
             const SizedBox(height: 100),
@@ -381,7 +381,8 @@ class DiscountSection extends StatelessWidget {
 }
 
 class ListMenu extends StatefulWidget {
-  const ListMenu({super.key});
+  final Users? profile;
+  const ListMenu({super.key, this.profile});
 
   @override
   State<ListMenu> createState() => _ListMenuState();
@@ -427,7 +428,7 @@ class _ListMenuState extends State<ListMenu> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Detail(hotel: hotels[index]),
+                      builder: (context) => Detail(hotel: hotels[index], profile: widget.profile,),
                     )
                     );
                 },

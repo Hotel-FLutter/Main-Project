@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_sqlite_auth_app/Views/auth.dart';
+import '../Views/auth.dart';
 import '../Components/colors.dart';
 import '../JSON/users.dart';
 
