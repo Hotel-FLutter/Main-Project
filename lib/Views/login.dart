@@ -32,7 +32,8 @@ class _LoginScreenState extends State<LoginScreen> {
         .authenticate(Users(usrName: usrName.text, password: password.text));
     if (res == true) {
       // ignore: use_build_context_synchronously
-      Navigator.pushAndRemoveUntil(context,
+      Navigator.pushAndRemoveUntil(
+        context,
         MaterialPageRoute(builder: (context) => Home(profile: usrDetails)),
         (Route<dynamic> route) => false,
       );
@@ -58,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 const Text(
                   "LOGIN",
-                  style: TextStyle(color: primaryColor, fontSize: 40),
+                  style: TextStyle(color: Colors.green, fontSize: 40),
                 ),
                 Image.asset("assets/background.jpg"),
                 InputField(

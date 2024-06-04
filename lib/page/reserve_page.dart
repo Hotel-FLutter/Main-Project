@@ -9,7 +9,8 @@ import 'package:intl/intl.dart';
 class Reserve extends StatefulWidget {
   final Map<String, dynamic> hotel;
   final Users? profile;
-  const Reserve({Key? key, required this.hotel, this.profile}) : super(key: key);
+  const Reserve({Key? key, required this.hotel, this.profile})
+      : super(key: key);
 
   @override
   State<Reserve> createState() => _ReserveState();
@@ -20,33 +21,42 @@ class _ReserveState extends State<Reserve> {
   DateTime? _checkOutDate;
   int _selectedBed = 1;
   final db = DatabaseHelper();
-  reserve()async{
-    var res = await db.createHotel(Hotels(hotelName: widget.hotel['nama_hotel'], book: widget.hotel['book'], checkInDate: _checkInDate, checkOutDate: _checkOutDate, status: 'unSaved'));
-    if(res>0){
-      if(!mounted)return;
-      Navigator.push(context, MaterialPageRoute(builder: (context)=> Home(profile: widget.profile,)));
+  reserve() async {
+    var res = await db.createHotel(Hotels(
+        hotelName: widget.hotel['nama_hotel'],
+        book: widget.hotel['book'],
+        checkInDate: _checkInDate,
+        checkOutDate: _checkOutDate,
+        status: 'unSaved'));
+    if (res > 0) {
+      if (!mounted) return;
+      Navigator.push(
+          context,
+          MaterialPageRoute(
+              builder: (context) => Home(
+                    profile: widget.profile,
+                  )));
     }
   }
-  
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
 
   @override
-    void initState() {
-      super.initState();
-      if (widget.profile != null) {
-        _emailController.text = widget.profile!.email ?? "";
-        _nameController.text = widget.profile!.usrName;
-      }
+  void initState() {
+    super.initState();
+    if (widget.profile != null) {
+      _emailController.text = widget.profile!.email ?? "";
+      _nameController.text = widget.profile!.usrName;
     }
+  }
 
   @override
-    void dispose() {
-      _emailController.dispose();
-      _nameController.dispose();
-      super.dispose();
-    }
+  void dispose() {
+    _emailController.dispose();
+    _nameController.dispose();
+    super.dispose();
+  }
 
   void _showCheckInDatePicker() async {
     final DateTime? picked = await showDatePicker(
@@ -105,7 +115,7 @@ class _ReserveState extends State<Reserve> {
                 border: OutlineInputBorder(),
               ),
             ),
-            const  SizedBox(height: 16),
+            const SizedBox(height: 16),
             DropdownButtonFormField<int>(
               value: _selectedBed,
               onChanged: (value) {
@@ -146,7 +156,8 @@ class _ReserveState extends State<Reserve> {
                     controller: _checkInDate == null
                         ? null
                         : TextEditingController(
-                            text: '${_checkInDate!.day}/${_checkInDate!.month}/${_checkInDate!.year}',
+                            text:
+                                '${_checkInDate!.day}/${_checkInDate!.month}/${_checkInDate!.year}',
                           ),
                   ),
                 ),
@@ -162,7 +173,8 @@ class _ReserveState extends State<Reserve> {
                     controller: _checkOutDate == null
                         ? null
                         : TextEditingController(
-                            text: '${_checkOutDate!.day}/${_checkOutDate!.month}/${_checkOutDate!.year}',
+                            text:
+                                '${_checkOutDate!.day}/${_checkOutDate!.month}/${_checkOutDate!.year}',
                           ),
                   ),
                 ),
@@ -179,16 +191,18 @@ class _ReserveState extends State<Reserve> {
                   ? null
                   : TextEditingController(
                       text: NumberFormat.currency(
-                          locale: 'id_ID',
-                          symbol: 'Rp',
-                        ).format(
-                          _selectedBed * _checkOutDate!.difference(_checkInDate!).inDays * priceDouble
-                        ),
+                        locale: 'id_ID',
+                        symbol: 'Rp',
+                      ).format(_selectedBed *
+                          _checkOutDate!.difference(_checkInDate!).inDays *
+                          priceDouble),
                     ),
             ),
-            Button(label: "Reserve Now", press: (){
-              reserve();
-            }),
+            Button(
+                label: "Reserve Now",
+                press: () {
+                  reserve();
+                }),
           ],
         ),
       ),

@@ -23,7 +23,7 @@ class AuthScreen extends StatelessWidget {
                 style: TextStyle(
                     fontSize: 35,
                     fontWeight: FontWeight.bold,
-                    color: primaryColor),
+                    color: Colors.green),
               ),
               const Text(
                 "Authenticate to access your vital information",

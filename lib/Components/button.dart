@@ -17,7 +17,7 @@ class Button extends StatelessWidget {
       width: size.width * .9,
       height: 55,
       decoration: BoxDecoration(
-          color: primaryColor, borderRadius: BorderRadius.circular(8)),
+          color: Colors.green, borderRadius: BorderRadius.circular(8)),
       child: TextButton(
         onPressed: press,
         child: Text(
